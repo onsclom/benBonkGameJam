@@ -18,6 +18,13 @@ _global_script_class_icons={
 config/name="BenBonkGameJam"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=272
+window/size/height=176
+window/size/test_width=816
+window/size/test_height=528
+
 [memory]
 
 limits/message_queue/max_size_kb=4096
