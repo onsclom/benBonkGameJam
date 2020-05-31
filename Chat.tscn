@@ -128,6 +128,7 @@ __meta__ = {
 position = Vector2( 105, 73 )
 frames = SubResource( 3 )
 animation = "New Anim"
+frame = 6
 playing = true
 offset = Vector2( -0.5, 0 )
 
