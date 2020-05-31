@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spaz-uimockup.png-61640da8a2098c4912956cec3ecf459a.stex"
+path="res://.import/spaz-uimockup.png-c107dc4f918b461c804dc8a459c36751.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spaz-uimockup.png"
-dest_files=[ "res://.import/spaz-uimockup.png-61640da8a2098c4912956cec3ecf459a.stex" ]
+source_file="res://Assets/spaz-uimockup.png"
+dest_files=[ "res://.import/spaz-uimockup.png-c107dc4f918b461c804dc8a459c36751.stex" ]
 
 [params]
 
