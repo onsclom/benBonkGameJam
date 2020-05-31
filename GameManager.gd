@@ -28,6 +28,8 @@ var nextChatSpeed = .3
 
 var timeSinceLastSpam = 0
 
+var ending = preload("res://Ending.tscn")
+
 func _ready():
 	print(names)
 	#test generate
@@ -90,6 +92,8 @@ func _process(delta):
 			#send nice job messages and move onto pre2
 			curState+=1
 		PRE2:
+			get_node("/root").get_tree().change_scene_to(ending)
+			curState+=1
 			pass
 		PHASE2:
 			pass
