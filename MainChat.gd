@@ -15,6 +15,7 @@ var frozenBuffer = ""
 func _ready():
 	#changes rng seed!
 	randomize()
+	randomize()
 	GameManager.connect("send_chat_message", self,  "_send_chat_message_signal")
 	frozenMessage.visible = false
 	pass # Replace with function body.
@@ -29,7 +30,7 @@ func _process(delta):
 		cur += 1
 
 func _on_Label_meta_clicked(meta):
-	print(meta + "was clicked")
+	$LineEdit.text = meta
 	pass # Replace with function body.
 
 
@@ -48,7 +49,7 @@ func _send_chat_message_signal(name, color, msg):
 	if frozenMessage.visible == false:
 		if chatLabel.bbcode_text != "":
 			chatLabel.bbcode_text += "\n"
-		chatLabel.bbcode_text += '[color=#' + color + '][url={"name"="bob"}]' + name + '[/url][/color] [color=#' + "1a1c2c" +']' + msg + "[/color]"
+		chatLabel.bbcode_text += '[color=#' + color + '][url='+name+']' + name + '[/url][/color] [color=#' + "1a1c2c" +']' + msg + "[/color]"
 	else:
 		if chatLabel.bbcode_text != "" || frozenBuffer != "":
 			frozenBuffer += "\n"
@@ -61,9 +62,20 @@ func _on_LineEdit_text_entered(new_text):
 
 func banSubmit():
 	var name = $LineEdit.text
-	print("ban" + name)
+	
+	if name in GameManager.hackers:
+		print("name in hackers")
+		GameManager.hackers.remove( GameManager.hackers.rfind(name) )
+	else:
+		print("name not in hackers!")
+		
+	for x in range(GameManager.hackers.size()):
+		if GameManager.hackers[x].name == name:
+			GameManager.hackers.remove( x )
+			
 	$LineEdit.text = ""
 	chatLabel.bbcode_text += '\n[color=#333c57]* ' + name + ' is now banned.' + "[/color]"
+
 
 func _on_TextureButton_pressed():
 	banSubmit()
