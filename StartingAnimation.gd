@@ -14,9 +14,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("leftclick"):
+		$click.playing = true
 		if get_animation() == "idle1" || get_animation() == "idle2":
 			cur+=1
+			if get_animation() == "idle1":
+				$sound1.playing = true
+				$sound2.playing = true
+				$sound3.playing = true
+				
+				#play sounds???
 			play(animations[cur])
+			print("YAYAYAYAY")
 		
 
 

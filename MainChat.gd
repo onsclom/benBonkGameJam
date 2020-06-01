@@ -18,16 +18,19 @@ func _ready():
 	randomize()
 	GameManager.connect("send_chat_message", self,  "_send_chat_message_signal")
 	frozenMessage.visible = false
+	GameManager.gameStarted = true
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (Input.is_action_just_pressed("test")):
-		if frozenMessage.visible == false:
-			chatLabel.bbcode_text += '\n[color=#' + colors[randi() %colors.size()] + '][url={"name"="bob"}]' + names[randi() % names.size() ] + '[/url][/color] [color=#' + "000000" +']' + "test" + str(cur) + "[/color]"
-		else:
-			frozenBuffer += '\n[color=#' + colors[randi() %colors.size()] + '][url={"name"="bob"}]' + names[randi() % names.size() ] + '[/url][/color] [color=#' + "000000" +']' + "test" + str(cur) + "[/color]"
-		cur += 1
+#	if (Input.is_action_just_pressed("test")):
+#		if frozenMessage.visible == false:
+#			chatLabel.bbcode_text += '\n[color=#' + colors[randi() %colors.size()] + '][url={"name"="bob"}]' + names[randi() % names.size() ] + '[/url][/color] [color=#' + "000000" +']' + "test" + str(cur) + "[/color]"
+#		else:
+#			frozenBuffer += '\n[color=#' + colors[randi() %colors.size()] + '][url={"name"="bob"}]' + names[randi() % names.size() ] + '[/url][/color] [color=#' + "000000" +']' + "test" + str(cur) + "[/color]"
+#		cur += 1
+	if Input.is_action_just_pressed("leftclick"):
+		$clickSound.playing = true
 
 func _on_Label_meta_clicked(meta):
 	$LineEdit.text = meta
@@ -62,6 +65,9 @@ func _on_LineEdit_text_entered(new_text):
 
 func banSubmit():
 	var name = $LineEdit.text
+	
+	if name in GameManager.chatters:
+		GameManager.chatters.erase(name)
 	
 	if name in GameManager.hackers:
 		print("name in hackers")

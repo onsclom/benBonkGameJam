@@ -1,17 +1,25 @@
 extends Area2D
 
 var saltAMessageCount = 0
-var maxMessageAmount = 2
+var maxMessageAmount = 0
 
-var unread = true
+var unread = false
 
 func on_click():
 	print("click")
 	$AnimatedSprite_Mes.stop()
 
 func _ready():
-	$AnimatedSprite_Mes.play("unread")
+	GameManager.connect("send_pm_message", self, "_on_send_pm_message")
+	$AnimatedSprite_Mes.play("default")
 	saltAMessageCount += 1
+	
+func _on_send_pm_message(num):
+	if (num > maxMessageAmount):
+		$AnimatedSprite_Mes.play("unread")
+		unread = true
+		$incomingMail.playing = true
+		maxMessageAmount = num
 
 func _on_TextureButton_Mes_pressed():
 	unread = false
@@ -23,9 +31,9 @@ func _saltAMessageCount():
 
 func _on_TextureButton_pressed():
 	saltAMessageCount += 1
-	print(saltAMessageCount)
-	print(maxMessageAmount)
-	if saltAMessageCount == maxMessageAmount:
+	if saltAMessageCount == 2:
+		GameManager.helpRead = true
+	if saltAMessageCount >= maxMessageAmount:
 		$MessagePopup/AnimatedSprite.visible = false
 	pass # Replace with function body.
 

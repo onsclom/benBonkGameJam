@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/horror music.ogg-47618d9f51e562fdbfb2cb101be5e48c.oggstr"
+
+[deps]
+
+source_file="res://Spaz-Soundpack/Spaz glitchbad end/horror music.ogg"
+dest_files=[ "res://.import/horror music.ogg-47618d9f51e562fdbfb2cb101be5e48c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/computer-fan-noise.ogg-61fee21ad4dc9d278adbe323cc34185a.oggstr"
+
+[deps]
+
+source_file="res://Spaz-Soundpack/spaz-introdesktop/computer-fan-noise.ogg"
+dest_files=[ "res://.import/computer-fan-noise.ogg-61fee21ad4dc9d278adbe323cc34185a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
