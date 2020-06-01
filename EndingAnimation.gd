@@ -14,3 +14,6 @@ func _on_AnimatedSprite_animation_finished():
 	if get_animation() == "startup1" || get_animation() == "startup2":
 		cur+=1 
 		play(animations[cur])
+		$sound1.playing = false
+		$sound2.playing = false
+		$sound3.playing = false

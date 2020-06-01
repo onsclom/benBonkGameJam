@@ -11,10 +11,9 @@ var chatters = {}
 var hackers = []
 
 # hackers
-
 var names = "wren orly cleo elke juno sian noah liam owen john luke jack ryan emma ella levi aria lily zoey evan nora leah adam jace jose ezra mila maya ruby".split(" ")
 var colors = ["ffcd75", "ef7d57", "b13e53", "73eff7", "41a6f6", "a7f070", "38b764"]
-var randomFunMessages = ["pog", "nice gameplay!", "lulw", "kappa kappa", "loving the content", "haha", "lol", "NICE", "nailed it", "first tryyy", "KEKW", "...", "oof"]
+var randomFunMessages = ["pog", "nice gameplay!", "lulw", "kappa kappa", "loving the content", "haha", "lol", "NICE", "nailed it", "first tryyy", "KEKW", "...", "oof", "sweet trick", ":)", "nice job", "i love games", "git gud scrub", "nice song", "who else here?", "bring it on", "song name?", "stream's laggy", "good play", "!!!", "plz", "what u mean?", "LOLOL", "letsgooo", "tasty burger", "mmm", "wut?", "huh", "good vibes", "heheh", "trolled dude", "not gud", "tfw"]
 
 #Game states:
 #	as game progresses these states change
@@ -22,11 +21,11 @@ enum {WAITFORGAME, PRE,PREHALF,PRE1,START,PHASE1,PRE2,PHASE2,END}
 
 var gameStarted = false
 
-var curState = PRE
+var curState = WAITFORGAME
 var timeSinceLastMessage = 0
 
-var chatSpeed = .3
-var nextChatSpeed = .3
+var chatSpeed = .5
+var nextChatSpeed = .5
 
 var timeSinceLastSpam = 0
 
@@ -39,7 +38,7 @@ var helpRead = false
 func _ready():
 	print(names)
 	#test generate
-	generate_chatters(20)
+	generate_chatters(50)
 	print(chatters)
 
 func generate_chatters(amount):
@@ -100,6 +99,7 @@ func _process(delta):
 			
 
 			curState += 1
+			chatSpeed *= 2 # slowing down chat
 		START:
 			updateChat(delta)
 			
@@ -108,6 +108,7 @@ func _process(delta):
 			else:
 				#they banned the spammer weee!
 				curState +=1
+				chatSpeed /= 2 # speed back up chat
 		PHASE1: 
 			print("nice")
 			#send nice job messages and move onto pre2

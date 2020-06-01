@@ -12,6 +12,7 @@ func _on_TextureButton_Mes_pressed():
 func update():
 	var currentMsgTexture = load("res://Assets/saltAChats/spaz-saltachats" + get_parent()._saltAMessageCount() as String +  ".png")
 	self.set_texture(currentMsgTexture)
+	get_node("../Arrow").visible = false
 	self.visible = true
 	
 func _on_ClosePopup_Mes_pressed():

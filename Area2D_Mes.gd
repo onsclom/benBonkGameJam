@@ -5,9 +5,8 @@ var maxMessageAmount = 0
 
 var unread = false
 
-func on_click():
-	print("click")
-	$AnimatedSprite_Mes.stop()
+var firstTime = true
+
 
 func _ready():
 	GameManager.connect("send_pm_message", self, "_on_send_pm_message")
@@ -20,6 +19,9 @@ func _on_send_pm_message(num):
 		unread = true
 		$incomingMail.playing = true
 		maxMessageAmount = num
+		
+		if firstTime:
+			$Arrow.visible = true
 
 func _on_TextureButton_Mes_pressed():
 	unread = false
@@ -30,6 +32,7 @@ func _saltAMessageCount():
 
 
 func _on_TextureButton_pressed():
+	
 	saltAMessageCount += 1
 	if saltAMessageCount == 2:
 		GameManager.helpRead = true

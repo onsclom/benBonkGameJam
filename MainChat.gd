@@ -32,9 +32,12 @@ func _process(delta):
 	if Input.is_action_just_pressed("leftclick"):
 		$clickSound.playing = true
 
+
 func _on_Label_meta_clicked(meta):
-	$LineEdit.text = meta
-	pass # Replace with function body.
+	if ($LineEdit.text == meta):
+		banSubmit()
+	else:
+		$LineEdit.text = meta
 
 
 func _on_Label_mouse_entered():
@@ -64,6 +67,9 @@ func _on_LineEdit_text_entered(new_text):
 	banSubmit()
 
 func banSubmit():
+	
+	$banSound.playing = true
+	
 	var name = $LineEdit.text
 	
 	if name in GameManager.chatters:

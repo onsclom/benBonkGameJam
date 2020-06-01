@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/spaz_ban.ogg-1f7109d7b3fe881ef9c5c306e6732072.oggstr"
+
+[deps]
+
+source_file="res://Spaz-Soundpack/spaz_ban.ogg"
+dest_files=[ "res://.import/spaz_ban.ogg-1f7109d7b3fe881ef9c5c306e6732072.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
