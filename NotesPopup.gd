@@ -6,6 +6,7 @@ func _ready():
 
 func _on_TextureButton_Note_pressed():
 	# Display most recent saltA message
+	get_node("../AnimatedSprite").visible = false
 	var currentNoteTexture = load( "res://Assets/Notes/spaz-notepage" + get_parent()._saltANoteCount() as String +  ".png")
 	self.set_texture(currentNoteTexture)
 	self.visible = true

@@ -98,7 +98,7 @@ texture = ExtResource( 4 )
 position = Vector2( 105, 73 )
 frames = SubResource( 2 )
 animation = "New Anim"
-frame = 12
+frame = 15
 playing = true
 offset = Vector2( -0.5, 0 )
 

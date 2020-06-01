@@ -10,6 +10,13 @@ func _on_TextureButton_Mes_pressed():
 	# Do we need to add forward/back buttons? 
 	
 func update():
+	if get_parent().unread:
+		get_parent().saltAMessageCount += 1
+		if get_parent().saltAMessageCount < get_parent().maxMessageAmount:
+			print("THIS TRIGGERED YAY")
+			get_node("../MessagePopup/AnimatedSprite").visible = true
+	get_parent().unread = false
+	print(get_parent()._saltAMessageCount())
 	var currentMsgTexture = load("res://Assets/saltAChats/spaz-saltachats" + get_parent()._saltAMessageCount() as String +  ".png")
 	self.set_texture(currentMsgTexture)
 	get_node("../Arrow").visible = false

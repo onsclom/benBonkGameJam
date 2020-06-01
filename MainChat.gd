@@ -11,6 +11,8 @@ onready var frozenMessage = $FrozenChat
 
 var frozenBuffer = ""
 
+var newViewerClock = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#changes rng seed!
@@ -32,6 +34,13 @@ func _process(delta):
 	if Input.is_action_just_pressed("leftclick"):
 		$clickSound.playing = true
 
+	newViewerClock += delta
+	
+	if newViewerClock > 30:
+		var viewers = int($viewerLabel.text)
+		viewers += 1
+		$viewerLabel.text = str(viewers)
+		newViewerClock -= 30
 
 func _on_Label_meta_clicked(meta):
 	if ($LineEdit.text == meta):
@@ -68,6 +77,9 @@ func _on_LineEdit_text_entered(new_text):
 
 func banSubmit():
 	
+	if $LineEdit.text == "":
+		return
+	
 	$banSound.playing = true
 	
 	var name = $LineEdit.text
@@ -88,6 +100,9 @@ func banSubmit():
 	$LineEdit.text = ""
 	chatLabel.bbcode_text += '\n[color=#333c57]* ' + name + ' is now banned.' + "[/color]"
 
+	var viewers = int($viewerLabel.text)
+	viewers -= 1
+	$viewerLabel.text = str(viewers)
 
 func _on_TextureButton_pressed():
 	banSubmit()

@@ -17,7 +17,7 @@ var randomFunMessages = ["pog", "nice gameplay!", "lulw", "kappa kappa", "loving
 
 #Game states:
 #	as game progresses these states change
-enum {WAITFORGAME, PRE,PREHALF,PRE1,START,PHASE1,PRE2,PHASE2,END}
+enum {WAITFORGAME,PRE,PREHALF,PRE1,START,TIMEBEFORE,PHASE1,PHASE2,PHASE3,PHASE4,PHASE5,PHASE6,PHASE7,PHASE8,PHASE9,PHASE10,PHASE11,PHASE12,PHASE13,PHASE14,PHASE15,PHASE16,END1,END2}
 
 var gameStarted = false
 
@@ -109,18 +109,123 @@ func _process(delta):
 				#they banned the spammer weee!
 				curState +=1
 				chatSpeed /= 2 # speed back up chat
+		TIMEBEFORE:
+			#some time before getting mail!
+			updateChat(delta)
+			preTimer += delta
+			if preTimer >= 2:
+				preTimer = 0
+				curState += 1
 		PHASE1: 
 			print("nice")
-			#send nice job messages and move onto pre2
+			#gives two more pages
+			emit_signal("send_pm_message", 4)
+			#inside pm deal with activating notes
 			curState+=1
-		PRE2:
+		PHASE2:
+#			var randNum = str(floor(rand_range(1,99)))
+#			var newName = ""
+#			var newColor = colors[randi() % colors.size()]
+#
+#			if randi()%2 == 0:
+#				#make num first
+#				newName = randNum + names[randi() % names.size()]
+#			else:
+#				#make num after
+#				newName = names[randi() % names.size()] + randNum
+#			hackers.append(Player.new(newColor, newName))
+#			#make someone who spawns spams the same message 3 times
+#			curState+=1 
+			
+			#### SHORTCUT TO END!!! 
+			updateChat(delta)
+			preTimer += delta
+			if preTimer >= 15:
+				preTimer = 0
+				curState = END1
+				
+		PHASE3:
+			updateChat(delta)
+			#only move on if they ban the hacker
+			if hackers!=[]:	
+				pass
+				#specialManSpam(delta)
+			else:
+				#they banned the spammer weee!
+				curState +=1
+		PHASE4:
+			#make someone who sends bit.ly links in chat
+#			curState+=1
+			pass
+
+		PHASE5:
+			#only move on if they ban the hacker
+			if hackers!=[]:	
+				pass
+				#bitlySpam(delta)
+			else:
+				#they banned the spammer weee!
+				curState +=1
+		PHASE6:
+			emit_signal("send_pm_message", 6)
+			#inside pm update the pages
+			curState += 1
+		PHASE7:
+			#make someone with number messages 
+			curState+=1
+		PHASE8:
+			#only move on if they ban the hacker
+			if hackers!=[]:	
+				pass
+				#numberMessages(delta)
+			else:
+				#they banned the spammer weee!
+				curState +=1
+		PHASE9:
+			#make another with number messages 
+			curState+=1
+		PHASE10:
+			#only move on if they ban the hacker
+			if hackers!=[]:	
+				pass
+				#numberMessages(delta)
+			else:
+				#they banned the spammer weee!
+				curState +=1
+		PHASE11:
+			emit_signal("send_pm_message", 7)
+			#update notes in pms
+			curState += 1
+		PHASE12:
+			#make a last baddy? 
+			curState+=1
+		PHASE13:
+			#only move on if they ban the hacker
+			if hackers!=[]:	
+				pass
+				#lastBaddy?(delta)
+			else:
+				#they banned the spammer weee!
+				curState +=1
+		PHASE14:
+			#send final message
+			emit_signal("send_pm_message", 8)
+			curState += 1
+		PHASE15:	
+			#dont cur+=1 until note is read
+			pass
+		PHASE16:
+			#SMILEY :) IN CHAT BABY
+			#VIEWERS DECREASE EVERY FRAME AND GO DEEP INTO -'s
+			preTimer += delta
+			if preTimer >= 5: # decide how long to stay here
+				preTimer = 0
+				curState += 1
+		END1:
 			get_node("/root").get_tree().change_scene_to(ending)
 			curState+=1
 			pass
-		PHASE2:
-			pass
-		END:
-			#PLAY spooky outro animation
+		END2:
 			pass
 			
 func hackerManSpam(delta):

@@ -11,7 +11,6 @@ var firstTime = true
 func _ready():
 	GameManager.connect("send_pm_message", self, "_on_send_pm_message")
 	$AnimatedSprite_Mes.play("default")
-	saltAMessageCount += 1
 	
 func _on_send_pm_message(num):
 	if (num > maxMessageAmount):
@@ -21,10 +20,10 @@ func _on_send_pm_message(num):
 		maxMessageAmount = num
 		
 		if firstTime:
+			firstTime = false
 			$Arrow.visible = true
 
 func _on_TextureButton_Mes_pressed():
-	unread = false
 	$AnimatedSprite_Mes.play("defaultHover")
 
 func _saltAMessageCount(): 
@@ -36,6 +35,10 @@ func _on_TextureButton_pressed():
 	saltAMessageCount += 1
 	if saltAMessageCount == 2:
 		GameManager.helpRead = true
+	elif saltAMessageCount == 4:
+		get_node("../../Notes/Area2D_Note/TextureButton_Note").disabled = false
+		#activate green arrow?!
+		get_node("../../Notes/Area2D_Note/AnimatedSprite").visible = true
 	if saltAMessageCount >= maxMessageAmount:
 		$MessagePopup/AnimatedSprite.visible = false
 	pass # Replace with function body.

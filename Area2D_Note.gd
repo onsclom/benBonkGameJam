@@ -13,5 +13,6 @@ func _on_Note_tree_entered():
 func _on_TextureButton_pressed():
 	$AnimatedSprite_Note.stop()
 	
+	
 func _saltANoteCount(): 
 	return saltANoteCount
