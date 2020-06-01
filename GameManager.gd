@@ -73,7 +73,7 @@ func _process(delta):
 		PRE: #creates the spammer
 			updateChat(delta)
 			preTimer += delta
-			if preTimer >= 2:
+			if preTimer >= 4:
 				preTimer = 0
 				curState += 1
 		PREHALF:
