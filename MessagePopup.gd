@@ -20,11 +20,13 @@ func update():
 		else:
 			get_node("../MessagePopup/AnimatedSprite").visible = false
 			
-			if get_parent().saltAMessageCount == 7:
-				get_node("../../../Notes/Area2D_Note").saltANoteCount +=1
-			if get_parent().saltAMessageCount == 8:
-				GameManager.lastNoteRead = true
-			get_node("../../../Notes/Area2D_Note/NotesPopup").update()
+	if get_parent().saltAMessageCount == 7:
+		get_node("../../../Notes/Area2D_Note").saltANoteCount = 3
+		GameManager.seventhRead = true
+	if get_parent().saltAMessageCount == 8:
+		GameManager.lastNoteRead = true
+	get_node("../../../Notes/Area2D_Note/NotesPopup").update()
+	
 	get_parent().unread = false
 	print(get_parent()._saltAMessageCount())
 	var currentMsgTexture = load("res://Assets/saltAChats/spaz-saltachats" + get_parent()._saltAMessageCount() as String +  ".png")

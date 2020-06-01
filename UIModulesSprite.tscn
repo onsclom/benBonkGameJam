@@ -225,7 +225,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Messages/Area2D_Mes/MessagePopup"]
 position = Vector2( 23.032, 32.8912 )
 frames = SubResource( 7 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="TextureButton" type="TextureButton" parent="Messages/Area2D_Mes/MessagePopup/AnimatedSprite"]
@@ -246,7 +246,7 @@ visible = false
 position = Vector2( -0.968002, 14.8912 )
 z_index = 10
 frames = SubResource( 16 )
-frame = 7
+frame = 2
 playing = true
 
 [node name="Notes" type="Control" parent="."]
@@ -312,7 +312,7 @@ position = Vector2( 17.9536, -0.428802 )
 rotation = 4.71239
 z_index = 10
 frames = SubResource( 27 )
-frame = 6
+frame = 1
 playing = true
 [connection signal="tree_entered" from="Messages/Message" to="Messages/Area2D_Mes" method="_on_Message_tree_entered"]
 [connection signal="mouse_entered" from="Messages/Area2D_Mes/TextureButton_Mes" to="Messages/Area2D_Mes" method="_on_TextureButton_Mes_mouse_entered"]

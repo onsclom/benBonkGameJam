@@ -49,6 +49,8 @@ var preTimer = 0
 
 var helpRead = false
 
+var seventhRead = false
+
 func _ready():
 	print(names)
 	#test generate
@@ -197,6 +199,7 @@ func _process(delta):
 				preTimer = 0
 				curState += 1
 		PHASE6:
+			updateChat(delta)
 			emit_signal("send_pm_message", 6)
 			#inside pm update the pages
 			if readPage6:
@@ -251,9 +254,11 @@ func _process(delta):
 				#they banned the spammer weee!
 				curState +=1
 		PHASE11:
+			updateChat(delta)
 			emit_signal("send_pm_message", 7)
 			#update notes in pms
-			curState += 1
+			if seventhRead:
+				curState += 1
 		PHASE12:
 			#activate first PMs from hackerman HERE
 			var randNum = str(floor(rand_range(1,99)))
