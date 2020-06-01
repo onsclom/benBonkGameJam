@@ -125,7 +125,7 @@ animations = [ {
 position = Vector2( 136, 88 )
 frames = SubResource( 1 )
 animation = "startup3"
-frame = 13
+frame = 12
 playing = true
 script = ExtResource( 34 )
 

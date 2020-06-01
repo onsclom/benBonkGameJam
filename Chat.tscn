@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://startupSlides/spaz-uimockup.png" type="Texture" id=1]
 [ext_resource path="res://Assets/m3x6.ttf" type="DynamicFontData" id=2]
@@ -28,8 +28,9 @@
 [ext_resource path="res://UIModulesSprite.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Spaz-Soundpack/SPaz Mouse Clicks/mouseclick.wav" type="AudioStream" id=27]
 [ext_resource path="res://Spaz-Soundpack/spaz_ban.ogg" type="AudioStream" id=28]
+[ext_resource path="res://GameSong1.wav" type="AudioStream" id=29]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -42,10 +43,10 @@ animations = [ {
 "speed": 14.0
 } ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 2 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 22 ) ],
 "loop": true,
@@ -58,15 +59,15 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 extra_spacing_top = -3
 extra_spacing_bottom = -1
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 extra_spacing_top = -5
 extra_spacing_bottom = -1
 font_data = ExtResource( 2 )
@@ -96,9 +97,9 @@ texture = ExtResource( 4 )
 
 [node name="stream" type="AnimatedSprite" parent="."]
 position = Vector2( 105, 73 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "New Anim"
-frame = 15
+frame = 3
 playing = true
 offset = Vector2( -0.5, 0 )
 
@@ -107,7 +108,7 @@ margin_left = 170.0
 margin_top = 128.0
 margin_right = 200.0
 margin_bottom = 142.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.694118, 0.243137, 0.32549, 1 )
 text = "100"
 __meta__ = {
@@ -116,7 +117,7 @@ __meta__ = {
 
 [node name="inputBackground" type="AnimatedSprite" parent="."]
 position = Vector2( 237, 137 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "activated"
 
 [node name="Label2" type="Label" parent="."]
@@ -124,7 +125,7 @@ margin_left = 208.0
 margin_top = 130.0
 margin_right = 226.0
 margin_bottom = 144.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.337255, 0.423529, 0.52549, 1 )
 text = "/ban"
 
@@ -135,7 +136,7 @@ margin_left = 197.0
 margin_top = 29.0
 margin_right = 266.0
 margin_bottom = 129.0
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 5 )
 bbcode_enabled = true
 scroll_active = false
 scroll_following = true
@@ -161,7 +162,7 @@ margin_top = 132.0
 margin_right = 286.0
 margin_bottom = 145.0
 theme = ExtResource( 25 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.101961, 0.109804, 0.172549, 1 )
 max_length = 10
 placeholder_text = "..."
@@ -176,6 +177,11 @@ stream = ExtResource( 27 )
 stream = ExtResource( 28 )
 volume_db = -8.079
 pitch_scale = 0.54
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+volume_db = -5.049
+autoplay = true
 [connection signal="mouse_exited" from="." to="." method="_on_Control_mouse_exited"]
 [connection signal="meta_clicked" from="Label" to="." method="_on_Label_meta_clicked"]
 [connection signal="mouse_entered" from="Label" to="." method="_on_Label_mouse_entered"]

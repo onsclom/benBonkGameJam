@@ -43,74 +43,74 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 23, 7 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
 region = Rect2( 23, 0, 23, 7 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
 region = Rect2( 46, 0, 23, 7 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
 region = Rect2( 69, 0, 23, 7 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "default",
 "speed": 8.0
 } ]
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 9 )
 region = Rect2( 0, 0, 17, 21 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 9 )
 region = Rect2( 17, 0, 17, 21 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 9 )
 region = Rect2( 34, 0, 17, 21 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 9 )
 region = Rect2( 51, 0, 17, 21 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 9 )
 region = Rect2( 68, 0, 17, 21 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 9 )
 region = Rect2( 85, 0, 17, 21 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 9 )
 region = Rect2( 102, 0, 17, 21 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 9 )
 region = Rect2( 119, 0, 17, 21 )
 
-[sub_resource type="SpriteFrames" id=18]
+[sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
 "name": "default",
 "speed": 14.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 6, 5.5 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=18]
 animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
@@ -224,8 +224,8 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Messages/Area2D_Mes/MessagePopup"]
 position = Vector2( 23.032, 32.8912 )
-frames = SubResource( 9 )
-frame = 2
+frames = SubResource( 7 )
+frame = 3
 playing = true
 
 [node name="TextureButton" type="TextureButton" parent="Messages/Area2D_Mes/MessagePopup/AnimatedSprite"]
@@ -245,7 +245,7 @@ stream = ExtResource( 6 )
 visible = false
 position = Vector2( -0.968002, 14.8912 )
 z_index = 10
-frames = SubResource( 18 )
+frames = SubResource( 16 )
 frame = 7
 playing = true
 
@@ -268,11 +268,11 @@ position = Vector2( 9.04643, 65.4288 )
 script = ExtResource( 14 )
 
 [node name="CollisionShape2D_Note" type="CollisionShape2D" parent="Notes/Area2D_Note"]
-shape = SubResource( 3 )
+shape = SubResource( 17 )
 
 [node name="AnimatedSprite_Note" type="AnimatedSprite" parent="Notes/Area2D_Note"]
 visible = false
-frames = SubResource( 4 )
+frames = SubResource( 18 )
 animation = "unread"
 
 [node name="TextureButton_Note" type="TextureButton" parent="Notes/Area2D_Note"]
@@ -318,11 +318,11 @@ playing = true
 [connection signal="mouse_entered" from="Messages/Area2D_Mes/TextureButton_Mes" to="Messages/Area2D_Mes" method="_on_TextureButton_Mes_mouse_entered"]
 [connection signal="mouse_entered" from="Messages/Area2D_Mes/TextureButton_Mes" to="Messages" method="_on_TextureButton_Mes_mouse_entered"]
 [connection signal="mouse_exited" from="Messages/Area2D_Mes/TextureButton_Mes" to="Messages/Area2D_Mes" method="_on_TextureButton_Mes_mouse_exited"]
-[connection signal="pressed" from="Messages/Area2D_Mes/TextureButton_Mes" to="Messages/Area2D_Mes/MessagePopup" method="_on_TextureButton_Mes_pressed"]
 [connection signal="pressed" from="Messages/Area2D_Mes/TextureButton_Mes" to="Messages/Area2D_Mes" method="_on_TextureButton_Mes_pressed"]
+[connection signal="pressed" from="Messages/Area2D_Mes/TextureButton_Mes" to="Messages/Area2D_Mes/MessagePopup" method="_on_TextureButton_Mes_pressed"]
 [connection signal="pressed" from="Messages/Area2D_Mes/MessagePopup/ClosePopup_Mes" to="Messages/Area2D_Mes/MessagePopup" method="_on_ClosePopup_Mes_pressed"]
-[connection signal="pressed" from="Messages/Area2D_Mes/MessagePopup/AnimatedSprite/TextureButton" to="Messages/Area2D_Mes/MessagePopup" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="Messages/Area2D_Mes/MessagePopup/AnimatedSprite/TextureButton" to="Messages/Area2D_Mes" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Messages/Area2D_Mes/MessagePopup/AnimatedSprite/TextureButton" to="Messages/Area2D_Mes/MessagePopup" method="_on_TextureButton_pressed"]
 [connection signal="tree_entered" from="Notes/Note" to="Notes/Area2D_Note" method="_on_Note_tree_entered"]
 [connection signal="pressed" from="Notes/Area2D_Note/TextureButton_Note" to="Notes/Area2D_Note/NotesPopup" method="_on_TextureButton_Note_pressed"]
 [connection signal="pressed" from="Notes/Area2D_Note/NotesPopup/ClosePopup_Notes" to="Notes/Area2D_Note/NotesPopup" method="_on_ClosePopup_Notes_pressed"]

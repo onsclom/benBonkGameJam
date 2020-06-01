@@ -33,6 +33,11 @@ func _process(delta):
 #		cur += 1
 	if Input.is_action_just_pressed("leftclick"):
 		$clickSound.playing = true
+		
+	if GameManager.viewersDying:
+		var viewers = int($viewerLabel.text)
+		viewers += 1
+		$viewerLabel.text = str(viewers)
 
 	newViewerClock += delta
 	
@@ -74,6 +79,7 @@ func _send_chat_message_signal(name, color, msg):
 
 func _on_LineEdit_text_entered(new_text):
 	banSubmit()
+
 
 func banSubmit():
 	

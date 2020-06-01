@@ -32,6 +32,7 @@ func _saltAMessageCount():
 
 func _on_TextureButton_pressed():
 	
+	
 	saltAMessageCount += 1
 	if saltAMessageCount == 2:
 		GameManager.helpRead = true
@@ -39,6 +40,14 @@ func _on_TextureButton_pressed():
 		get_node("../../Notes/Area2D_Note/TextureButton_Note").disabled = false
 		#activate green arrow?!
 		get_node("../../Notes/Area2D_Note/AnimatedSprite").visible = true
+	elif saltAMessageCount == 6:
+		get_node("../../Notes/Area2D_Note").saltANoteCount +=1
+		get_node("../../Notes/Area2D_Note/NotesPopup").update()
+		GameManager.readPage6 = true
+		pass
+		#then update notes 
+		
+		
 	if saltAMessageCount >= maxMessageAmount:
 		$MessagePopup/AnimatedSprite.visible = false
 	pass # Replace with function body.
