@@ -53,7 +53,7 @@ func _send_chat_message_signal(name, color, msg):
 	else:
 		if chatLabel.bbcode_text != "" || frozenBuffer != "":
 			frozenBuffer += "\n"
-		frozenBuffer += '[color=#' + color + '][url={"name"="bob"}]' + name + '[/url][/color] [color=#' + "1a1c2c" +']' + msg + "[/color]"
+		frozenBuffer += '[color=#' + color + '][url='+name+']' + name + '[/url][/color] [color=#' + "1a1c2c" +']' + msg + "[/color]"
 	cur += 1
 
 
@@ -79,3 +79,6 @@ func banSubmit():
 
 func _on_TextureButton_pressed():
 	banSubmit()
+
+
+

@@ -1,9 +1,9 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://startupSlides/spaz-uimockup.png" type="Texture" id=1]
-[ext_resource path="res://m3x6.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/m3x6.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://MainChat.gd" type="Script" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Assets/icon.png" type="Texture" id=4]
 [ext_resource path="res://streamStuff/Streamerview7.png" type="Texture" id=5]
 [ext_resource path="res://streamStuff/Streamerview1.png" type="Texture" id=6]
 [ext_resource path="res://streamStuff/Streamerview4.png" type="Texture" id=7]
@@ -25,11 +25,7 @@
 [ext_resource path="res://sendMessageStuff/Spaz-sendbutton1.png" type="Texture" id=23]
 [ext_resource path="res://sendMessageStuff/Spaz-sendbutton2.png" type="Texture" id=24]
 [ext_resource path="res://testTheme.tres" type="Theme" id=25]
-
-[sub_resource type="DynamicFont" id=1]
-extra_spacing_top = -3
-extra_spacing_bottom = -1
-font_data = ExtResource( 2 )
+[ext_resource path="res://UIModulesSprite.tscn" type="PackedScene" id=26]
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 2 )
@@ -63,12 +59,17 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=6]
-extra_spacing_top = -5
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+extra_spacing_top = -3
 extra_spacing_bottom = -1
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
+extra_spacing_top = -5
+extra_spacing_bottom = -1
 font_data = ExtResource( 2 )
 
 [node name="Control" type="Control"]
@@ -82,19 +83,6 @@ __meta__ = {
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 136, 88 )
 texture = ExtResource( 1 )
-
-[node name="Label" type="RichTextLabel" parent="."]
-margin_left = 197.0
-margin_top = 29.0
-margin_right = 266.0
-margin_bottom = 129.0
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-scroll_active = false
-scroll_following = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="FrozenChat" type="Control" parent="."]
 margin_right = 40.0
@@ -128,7 +116,7 @@ __meta__ = {
 position = Vector2( 105, 73 )
 frames = SubResource( 3 )
 animation = "New Anim"
-frame = 6
+frame = 14
 playing = true
 offset = Vector2( -0.5, 0 )
 
@@ -149,11 +137,36 @@ position = Vector2( 237, 137 )
 frames = SubResource( 5 )
 animation = "activated"
 
+[node name="Label2" type="Label" parent="."]
+margin_left = 208.0
+margin_top = 130.0
+margin_right = 226.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.337255, 0.423529, 0.52549, 1 )
+text = "/ban"
+
+[node name="UIModulesSprite" parent="." instance=ExtResource( 26 )]
+
+[node name="Label" type="RichTextLabel" parent="."]
+margin_left = 197.0
+margin_top = 29.0
+margin_right = 266.0
+margin_bottom = 129.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+scroll_active = false
+scroll_following = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TextureButton" type="TextureButton" parent="."]
 margin_left = 194.0
 margin_top = 132.0
 margin_right = 204.0
 margin_bottom = 143.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 23 )
 texture_hover = ExtResource( 24 )
 __meta__ = {
@@ -173,17 +186,11 @@ placeholder_text = "..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Label2" type="Label" parent="."]
-margin_left = 208.0
-margin_top = 130.0
-margin_right = 226.0
-margin_bottom = 144.0
-custom_fonts/font = SubResource( 7 )
-custom_colors/font_color = Color( 0.337255, 0.423529, 0.52549, 1 )
-text = "/ban"
+[connection signal="mouse_exited" from="." to="." method="_on_Control_mouse_exited"]
 [connection signal="meta_clicked" from="Label" to="." method="_on_Label_meta_clicked"]
 [connection signal="mouse_entered" from="Label" to="." method="_on_Label_mouse_entered"]
 [connection signal="mouse_exited" from="Label" to="." method="_on_Label_mouse_exited"]
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_TextureButton_mouse_exited"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
