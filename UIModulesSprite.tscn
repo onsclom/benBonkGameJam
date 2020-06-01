@@ -21,14 +21,14 @@ extents = Vector2( 6, 4.5 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "unread",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "unread",
 "speed": 5.0
 } ]
 
@@ -37,14 +37,14 @@ extents = Vector2( 6, 5.5 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "unread",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "unread",
 "speed": 5.0
 } ]
 
@@ -93,11 +93,7 @@ position = Vector2( 0.0319977, -1.1088 )
 frames = SubResource( 2 )
 
 [node name="MessagePopup" type="Sprite" parent="Messages/Area2D_Mes"]
-<<<<<<< HEAD
 position = Vector2( -126, 136 )
-=======
-position = Vector2( -84.8856, 121.7 )
->>>>>>> 0ccc4117a285ec5636d2cbc5da17713989fcaa25
 script = ExtResource( 15 )
 
 [node name="ClosePopup_Mes" type="TextureButton" parent="Messages/Area2D_Mes/MessagePopup"]

@@ -121,7 +121,7 @@ animations = [ {
 position = Vector2( 136, 88 )
 frames = SubResource( 1 )
 animation = "startup3"
-frame = 6
+frame = 11
 playing = true
 script = ExtResource( 34 )
 [connection signal="animation_finished" from="AnimatedSprite" to="AnimatedSprite" method="_on_AnimatedSprite_animation_finished"]
